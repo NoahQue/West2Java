@@ -7,12 +7,11 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
-
 import java.io.IOException;
 import java.util.*;
 
 public class HttpConnect {
-    static{
+    public static void init(){
         objectList = new ArrayList<>();
     }
     public static void getInformation() {
@@ -49,7 +48,7 @@ public class HttpConnect {
                 System.out.println("响应状态为:" + response.getStatusLine());
                 if (responseEntity != null) {
                     String result = EntityUtils.toString(responseEntity);
-                    System.out.println("响应内容为:" + result);
+                    //System.out.println("响应内容为:" + result);
                     JSONObject object = JSONObject.parseObject(result);
                     objectList.add(object);
                     //System.out.println(object);
